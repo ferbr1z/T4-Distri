@@ -18,30 +18,33 @@
 		
 	 	// Se comprueba si se esta pidiendo un TODO en especifico
 	 	if(todoId != null && !todoId.isEmpty()){
-			Todo todo = (Todo) todoService.getByID(todoId);
+			Todo todo = todoService.getByID(todoId);
 		 %>
-		<%= todo %>
 		<p>Id del Todo <%=todo.getID() %> </p>
 		<h1><%=todo.getTitle() %></h1>
 		<h2>Autor: <%=todo.getUserID()%></h2>
 		<p> Estado: <%=(todo.isCompleted() ? "Completado" : "Pendiente" ) %> </p>
 	
-			<ul>
+		
 	<%
 	} else { //sino, se listan todos los TODOs
 			
 			Todo[] todos = (Todo[]) todoService.getAll();
 			
-			for(int i=0; i<todos.length; i++){
+			for(Todo todo: todos){
 				%>
-				
-				<p> <%=todos[i] %> </p>
+					<div id="<%= todo.getID() %>">
+						<a href="?id=<%=todo.getID()%>">
+							<h2> <%= todo.getTitle() %> </h2>
+						</a>
+						<h6> Aca debe ir el nombre del user <%= todo.getUserID() %> </h6>
+						<p> <%= todo.isCompleted() %> </p>				
+					</div>
 				
 				<%
 			}
 	
 		}
 		%>
-</ul>
 </body>
 </html>

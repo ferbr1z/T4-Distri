@@ -28,7 +28,8 @@ public class TodoService extends AbstractService<Todo> {
 
 	@Override
 	public Todo getByID(String id) {
-		Todo result = rt.getForObject(uri, Todo.class);
+		String uriWithId = uri + "/" + id;
+		Todo result = rt.getForObject(uriWithId, Todo.class);
 		return result;
 	}
 

@@ -1,5 +1,7 @@
 package beans;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import abstracts.AbstractBean;
 import interfaces.ITodo;
 
@@ -10,6 +12,7 @@ public class Todo extends AbstractBean implements ITodo {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	@JsonProperty("userId")
 	private int userId;
 	private String title;
 	private boolean isCompleted;
