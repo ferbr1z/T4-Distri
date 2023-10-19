@@ -5,6 +5,7 @@ import abstracts.AbstractService;
 import beans.Post;
 import daos.PostDAO;
 import dtos.PostDTO;
+import dtos.PostWithCommentsDTO;
 import interfaces.beans.IPost;
 
 public class PostsService extends AbstractService<PostDTO> {
@@ -16,6 +17,10 @@ public class PostsService extends AbstractService<PostDTO> {
 	protected PostDTO toDTO(AbstractBean bean) {
 		return new PostDTO((IPost) bean);
 	}
+	
+	private PostWithCommentsDTO toDTOWithComments (AbstractBean bean) {
+		return new PostWithCommentsDTO( (IPost) bean);
+	}
 
 	@Override
 	public PostDTO[] getAll() {
@@ -23,9 +28,9 @@ public class PostsService extends AbstractService<PostDTO> {
 	}
 
 	@Override
-	public PostDTO getByID(String id) {
+	public PostWithCommentsDTO getByID(String id) {
 		Post post = pdao.getByID(id);
-		return toDTO(post);
+		return toDTOWithComments(post);
 	}
 
 }
