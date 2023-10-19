@@ -101,7 +101,7 @@
         </div>
     </nav>
     <div class="container">
-        <h1>Listado de Usuarios</h1>
+
         <%
         String id = request.getParameter("id");
         final UserService userService = new UserService();
@@ -138,6 +138,7 @@
         <%
         } else {
         %>
+        <h1>Listado de Usuarios</h1>
         <%
         UserDTO[] users = userService.getAll();
         for (UserDTO user : users) {
