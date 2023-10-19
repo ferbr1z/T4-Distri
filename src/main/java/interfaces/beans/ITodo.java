@@ -1,4 +1,6 @@
-package interfaces;
+package interfaces.beans;
+
+import interfaces.IBean;
 
 public interface ITodo extends IBean {
 	public int getUserID();

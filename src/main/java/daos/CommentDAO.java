@@ -1,18 +1,16 @@
-package services;
+package daos;
 
 import org.springframework.web.client.RestTemplate;
-import abstracts.AbstractService;
+import abstracts.AbstractDAO;
 import beans.Comment;
 
-public class CommentService extends AbstractService<Comment> {
+public class CommentDAO extends AbstractDAO<Comment> {
 
     private RestTemplate rt = new RestTemplate();
 
-    public CommentService() {
+    public CommentDAO() {
         super("https://jsonplaceholder.typicode.com/comments/");
     }
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public Comment[] getAll() {

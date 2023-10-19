@@ -1,6 +1,6 @@
 <%@page import="beans.Post"%>
-<%@page import="services.PostService"%>
-<%@page import="interfaces.IService"%>
+<%@page import="daos.PostDAO"%>
+<%@page import="interfaces.IDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -38,10 +38,10 @@
     <div class="container">
         <h1>Listado de Publicaciones</h1>
         <%
-        final PostService postService = new PostService();
-        Post[] posts = postService.getAll();
+        final PostDAO postService = new PostDAO();
+                Post[] posts = postService.getAll();
 
-        for (Post post : posts) {
+                for (Post post : posts) {
         %>
         <div class="post-item" id="<%= post.getID() %>">
             <h2><%= post.getTitle() %></h2>

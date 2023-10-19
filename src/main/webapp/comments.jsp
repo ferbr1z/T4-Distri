@@ -1,6 +1,6 @@
 <%@page import="beans.Comment"%>
-<%@page import="services.CommentService"%>
-<%@page import="interfaces.IService"%>
+<%@page import="daos.CommentDAO"%>
+<%@page import="interfaces.IDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -38,10 +38,10 @@
     <div class="container">
         <h1>Listado de Comentarios</h1>
         <%
-        final CommentService commentService = new CommentService();
-        Comment[] comments = commentService.getAll();
+        final CommentDAO commentService = new CommentDAO();
+                Comment[] comments = commentService.getAll();
 
-        for (Comment comment : comments) {
+                for (Comment comment : comments) {
         %>
         <div class="comment-item" id="<%= comment.getID() %>">
             <h2><%= comment.getName() %></h2>

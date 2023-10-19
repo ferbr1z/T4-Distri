@@ -1,29 +1,37 @@
 package services;
 
-import org.springframework.web.client.RestTemplate;
+import abstracts.AbstractBean;
 import abstracts.AbstractService;
 import beans.Album;
+import daos.AlbumDAO;
+import dtos.AlbumDTO;
 
-public class AlbumService extends AbstractService<Album> {
+public class AlbumService extends AbstractService<AlbumDTO>{
 
-    private RestTemplate rt = new RestTemplate();
+	AlbumDAO tdao = new AlbumDAO();
+	
+	@Override
+	protected AlbumDTO toDTO(AbstractBean bean) {
+		return new AlbumDTO( (Album) bean);
+	}
 
-    public AlbumService() {
-        super("https://jsonplaceholder.typicode.com/albums/");
-    }
+	@Override
+	public AlbumDTO[] getAll() {
+		Album[] albums = tdao.getAll();
+		AlbumDTO[] albumsDTO = new AlbumDTO[albums.length];
 
-    private static final long serialVersionUID = 1L;
+		for (int i=0; i<albums.length; i++) {
+			albumsDTO[i] = toDTO(albums[i]);
+		}
 
-    @Override
-    public Album[] getAll() {
-        Album[] result = rt.getForObject(uri, Album[].class);
-        return result;
-    }
+		return albumsDTO;
+	}
 
-    @Override
-    public Album getByID(String id) {
-        String uriWithId = uri + "/" + id;
-        Album result = rt.getForObject(uriWithId, Album.class);
-        return result;
-    }
+	@Override
+	public AlbumDTO getByID(String id) {
+		Album album = tdao.getByID(id);
+		AlbumDTO albumDTO = new AlbumDTO(album);
+		return null;
+	}
+
 }

@@ -1,17 +1,15 @@
-package services;
+package daos;
 
 import org.springframework.web.client.RestTemplate;
-import abstracts.AbstractService;
+import abstracts.AbstractDAO;
 import beans.User;
 
-public class UserService extends AbstractService<User> {
+public class UserDAO extends AbstractDAO<User> {
     private RestTemplate rt = new RestTemplate();
 
-    public UserService() {
+    public UserDAO() {
         super("https://jsonplaceholder.typicode.com/users/");
     }
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public User[] getAll() {
