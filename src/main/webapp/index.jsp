@@ -1,34 +1,54 @@
-<%@page import="beans.Photo"%>
-<%@page import="services.PhotoService"%>
-<%@page import="interfaces.IService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>Bienvenido</title>
+    <!-- Agregar la referencia a Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Listado de Fotos</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
+            background-color: #f8f9fa;
         }
 
         .container {
-            max-width: 800px;
-            margin: 0 auto;
             padding: 20px;
+        }
+
+        .welcome-card {
             background-color: #fff;
+            border: 1px solid #dcdcdc;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+        }
+
+        .list-group-item {
+            font-size: 1.5rem;
+            padding: 15px;
+            border: none;
+            background-color: #fff;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .list-group-item:hover {
+            background-color: #f0f0f0;
         }
     </style>
 </head>
 <body>
+    <!-- Agregar el menú de navegación (navbar) de Bootstrap -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">Bienvenido</a>
@@ -59,41 +79,14 @@
             </div>
         </div>
     </nav>
-    
-    <div class="container">
-        <h1>Listado de Fotos</h1>
-        <%
-        final PhotoService photoService = new PhotoService();
-        Photo[] photos = photoService.getAll();
-        int colCount = 0;
 
-        for (Photo photo : photos) {
-            if (colCount % 3 == 0) {
-        %>
-        <div class="row">
-        <%
-            }
-        %>
-            <div class="col-md-4">
-                <div class="card" style="margin-bottom: 20px;">
-                    <img src="<%= photo.getThumbnailUrl() %>" class="card-img-top" alt="<%= photo.getTitle() %>">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= photo.getTitle() %></h5>
-                        <p class="card-text">Álbum: <%= photo.getAlbumID() %></p>
-                    </div>
-                </div>
-            </div>
-        <%
-            if (colCount % 3 == 2 || colCount == photos.length - 1) {
-        %>
+    <div class="container mt-4">
+        <div class="welcome-card p-4">
+            <h1 class="text-center">¡Bienvenido a la Aplicación Web!</h1>
+            <p class="lead text-center my-4">Esta es una página de bienvenida. Puedes usar los siguientes enlaces para acceder a las diferentes secciones:</p>
         </div>
-        <%
-            }
-            colCount++;
-        }
-        %>
     </div>
-    
+
     <!-- Agregar la referencia a Bootstrap JS y jQuery al final del archivo -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
