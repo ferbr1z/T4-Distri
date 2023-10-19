@@ -16,9 +16,7 @@ public class User extends AbstractBean implements IUser{
     private String username;
     @JsonProperty("email")
     private String email;
-
     private Address address;
-
     @JsonProperty("phone")
     private String phone;
     @JsonProperty("website")
