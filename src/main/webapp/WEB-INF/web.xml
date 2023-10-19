@@ -10,6 +10,11 @@
         <welcome-file>default.htm</welcome-file>
     </welcome-file-list>
     
+    <context-param>
+        <param-name>log4j-config-location</param-name>
+        <param-value>WEB-INF/log4j.properties</param-value>
+    </context-param>
+    
     <servlet>
         <servlet-name>JSP Servlet</servlet-name>
         <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
