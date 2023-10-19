@@ -15,29 +15,62 @@
         <servlet-class>org.apache.jasper.servlet.JspServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    
+    <servlet>
+    	<servlet-name>TodosServlet</servlet-name>
+    	<jsp-file>/todos.jsp</jsp-file>
+    </servlet>
+    
+	<servlet-mapping>
+		<servlet-name>TodosServlet</servlet-name>
+		<url-pattern>/todos</url-pattern>
+	</servlet-mapping>
+
+ 	<servlet>
+    	<servlet-name>AlbumsServlet</servlet-name>
+    	<jsp-file>/albums.jsp</jsp-file>
+    </servlet>
 
     <servlet-mapping>
-        <servlet-name>JSP Servlet</servlet-name>
-        <url-pattern>/albums.jsp</url-pattern>
+        <servlet-name>AlbumsServlet</servlet-name>
+        <url-pattern>/albums</url-pattern>
     </servlet-mapping>
 
-    <servlet-mapping>
-        <servlet-name>JSP Servlet</servlet-name>
-        <url-pattern>/comments.jsp</url-pattern>
-    </servlet-mapping>
+	 <servlet>
+    	<servlet-name>CommentsServlet</servlet-name>
+    	<jsp-file>/comments.jsp</jsp-file>
+    </servlet>
 
     <servlet-mapping>
-        <servlet-name>JSP Servlet</servlet-name>
-        <url-pattern>/photos.jsp</url-pattern>
+        <servlet-name>CommentsServlet</servlet-name>
+        <url-pattern>/comments</url-pattern>
     </servlet-mapping>
 
+	 <servlet>
+    	<servlet-name>PhotosServlet</servlet-name>
+    	<jsp-file>/photos.jsp</jsp-file>
+    </servlet>
+
     <servlet-mapping>
-        <servlet-name>JSP Servlet</servlet-name>
-        <url-pattern>/posts.jsp</url-pattern>
+        <servlet-name>PhotosServlet</servlet-name>
+        <url-pattern>/photos</url-pattern>
+    </servlet-mapping>
+
+	 <servlet>
+    	<servlet-name>PostsServlet</servlet-name>
+    	<jsp-file>/posts.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PostsServlet</servlet-name>
+        <url-pattern>/posts</url-pattern>
     </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>JSP Servlet</servlet-name>
         <url-pattern>/users.jsp</url-pattern>
     </servlet-mapping>
+    
+    
+    
 </web-app>
