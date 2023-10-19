@@ -46,32 +46,35 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<div class="container">
-			<a class="navbar-brand" href="index">Bienvenido</a>
-			<button class="navbar-toggler" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="todos">Tareas</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="albums">Álbumes</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="photos">Fotos</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="posts">Publicaciones</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="comments">Comentarios</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="users">Usuarios</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+        <div class="container">
+            <a class="navbar-brand" href="index">Bienvenido</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="todos">Tareas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="albums">Álbumes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="photos">Fotos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="posts">Publicaciones</a>
+                    </li>
+                    <li class "nav-item">
+                        <a class="nav-link" href="comments">Comentarios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="users">Usuarios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <h1>Listado de Comentarios</h1>
         <%

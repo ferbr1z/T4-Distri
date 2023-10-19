@@ -15,7 +15,7 @@
                 <p class="lead">
                     La pagina que estas buscando no existe!.
                   </p>
-                <a href="/Tarea4-Distribuidos/index.jsp" class="btn btn-primary">Ir al inicio</a>
+                <a href="/Tarea4-Distribuidos/index" class="btn btn-primary">Ir al inicio</a>
             </div>
         </div>
 </body>
