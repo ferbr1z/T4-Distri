@@ -63,8 +63,7 @@
     <div class="container">
         <h1>Listado de Fotos</h1>
         <%
-<<<<<<< HEAD
-        final PhotoService photoService = new PhotoService();
+        final PhotoDAO photoService = new PhotoDAO();
         Photo[] photos = photoService.getAll();
         int colCount = 0;
 
@@ -86,12 +85,6 @@
             </div>
         <%
             if (colCount % 3 == 2 || colCount == photos.length - 1) {
-=======
-        final PhotoDAO photoService = new PhotoDAO();
-                Photo[] photos = photoService.getAll();
-
-                for (Photo photo : photos) {
->>>>>>> main
         %>
         </div>
         <%
