@@ -1,3 +1,5 @@
+<%@page import="dtos.CommentDTO"%>
+<%@page import="services.CommentService"%>
 <%@page import="beans.Comment"%>
 <%@page import="daos.CommentDAO"%>
 <%@page import="interfaces.IDAO"%>
@@ -38,10 +40,10 @@
     <div class="container">
         <h1>Listado de Comentarios</h1>
         <%
-        final CommentDAO commentService = new CommentDAO();
-                Comment[] comments = commentService.getAll();
+        final CommentService commentService = new CommentService();
+                CommentDTO[] comments = commentService.getAll();
 
-                for (Comment comment : comments) {
+                for (CommentDTO comment : comments) {
         %>
         <div class="comment-item" id="<%= comment.getID() %>">
             <h2><%= comment.getName() %></h2>

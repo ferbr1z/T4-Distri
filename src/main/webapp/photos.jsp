@@ -1,3 +1,5 @@
+<%@page import="dtos.PhotoDTO"%>
+<%@page import="services.PhotoService"%>
 <%@page import="beans.Photo"%>
 <%@page import="daos.PhotoDAO"%>
 <%@page import="interfaces.IDAO"%>
@@ -43,10 +45,10 @@
     <div class="container">
         <h1>Listado de Fotos</h1>
         <%
-        final PhotoDAO photoService = new PhotoDAO();
-                Photo[] photos = photoService.getAll();
+        final PhotoService photoService = new PhotoService();
+                PhotoDTO[] photos = photoService.getAll();
 
-                for (Photo photo : photos) {
+                for (PhotoDTO photo : photos) {
         %>
         <div class="photo-item" id="<%= photo.getID() %>">
             <h2><%= photo.getTitle() %></h2>
