@@ -31,7 +31,7 @@ public class UserService extends AbstractService<UserDTO> {
 	public UserDTO getByID(String id) {
 		User user = udao.getByID(id);
 		UserDTO userDTO = toDTO(user);
-		return null;
+		return userDTO;
 	}
 
 }

@@ -24,6 +24,12 @@ public class PostDAO extends AbstractDAO<Post> {
         Post result = rt.getForObject(uriWithId, Post.class);
         return result;
     }
+    
+    public Post[] getByUserId(String id) {
+    	String uriByUserId = "https://jsonplaceholder.typicode.com/users/" + id +"/posts";
+        Post[] result = rt.getForObject(uriByUserId, Post[].class);
+        return result;
+    }
 
     public Post create(Post post) {
         return rt.postForObject(uri, post, Post.class);

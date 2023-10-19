@@ -123,15 +123,17 @@
             <% 
             for (IPostDTO post : posts) {
         %>
-        
-        <div class="post-item" id="<%=post.getID()%>">
-            <a href="?id=<%=post.getID()%>">
-                <h2><%=post.getTitle()%></h2>
-            </a>
-            <h4>Autor: <%=post.getUserName()%></h4>
-            <p><%=post.getBody()%></p>
-        </div>
-        <%
+
+		<a href="?id=<%=post.getID()%>">
+			<div class="post-item" id="<%=post.getID()%>">
+				<h2><%=post.getTitle()%></h2>
+				<h4>
+					Autor:
+					<%=post.getUserName()%></h4>
+				<p><%=post.getBody()%></p>
+			</div>
+		</a>
+		<%
             }
         }
         %>

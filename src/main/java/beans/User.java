@@ -8,8 +8,6 @@ import interfaces.beans.IUser;
 public class User extends AbstractBean implements IUser{
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty("id")
-    private int id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("username")
@@ -24,10 +22,6 @@ public class User extends AbstractBean implements IUser{
 
     private Company company;
 
-    @Override
-    public int getID() {
-        return id;
-    }
 
     @Override
     public String getName() {

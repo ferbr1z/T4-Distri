@@ -34,6 +34,17 @@ public class PostsService extends AbstractService<PostDTO> {
 		return postList;
 	}
 
+	public PostDTO[] getByUserId(String id) {
+		Post[] posts = pdao.getByUserId(id);
+		PostDTO[] postList = new PostDTO[posts.length];
+		
+		for(int i=0; i< posts.length; i++) {
+			postList[i] = toDTO(posts[i]);
+		}
+		
+		return postList;
+	}
+	
 	@Override
 	public PostWithCommentsDTO getByID(String id) {
 		Post post = pdao.getByID(id);

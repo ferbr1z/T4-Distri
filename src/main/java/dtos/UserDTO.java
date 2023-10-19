@@ -5,6 +5,7 @@ import beans.User.Address;
 import beans.User.Company;
 import interfaces.beans.IUser;
 import interfaces.dtos.IUserDTO;
+import services.PostsService;
 
 public class UserDTO extends AbstractDto implements IUserDTO {
 
@@ -16,8 +17,10 @@ public class UserDTO extends AbstractDto implements IUserDTO {
 	private String phone;
 	private String website;
 	private Company company;
+	private PostDTO[] posts;
 
 	public UserDTO(IUser user) {
+		id = user.getID();
 		name = user.getName();
 		username = user.getUsername();
 		email = user.getEmail();
@@ -25,8 +28,13 @@ public class UserDTO extends AbstractDto implements IUserDTO {
 		phone = user.getPhone();
 		website = user.getWebsite();
 		company = user.getCompany();
+		posts = new PostsService().getByUserId(Integer.toString(id));
 	}
 
+	public PostDTO[] getPosts(){
+		return posts;
+	}
+	
 	@Override
 	public String getName() {
 		return name;
