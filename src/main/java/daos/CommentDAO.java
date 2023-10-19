@@ -24,4 +24,11 @@ public class CommentDAO extends AbstractDAO<Comment> {
         Comment result = rt.getForObject(uriWithId, Comment.class);
         return result;
     }
+    
+    public Comment[] getByPostID(String postId) {
+    	String uriByPostID = "https://jsonplaceholder.typicode.com/posts/" + postId + "/comments";
+    	Comment[] result = rt.getForObject(uriByPostID, Comment[].class);
+        return result;
+    }
+    
 }
