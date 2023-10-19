@@ -17,6 +17,16 @@
     </servlet>
     
     <servlet>
+    	<servlet-name>IndexServlet</servlet-name>
+    	<jsp-file>/index.jsp</jsp-file>
+    </servlet>
+    
+    <servlet-mapping>
+    	<servlet-name>IndexServlet</servlet-name>
+    	<url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
     	<servlet-name>TodosServlet</servlet-name>
     	<jsp-file>/todos.jsp</jsp-file>
     </servlet>
