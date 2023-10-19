@@ -1,6 +1,7 @@
-package interfaces;
+package interfaces.beans;
 
 import beans.User;
+import interfaces.IBean;
 
 public interface IUser extends IBean{
 	String getName();

@@ -3,7 +3,7 @@ package beans;
 import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import abstracts.AbstractBean;
-import interfaces.IUser;
+import interfaces.beans.IUser;
 
 public class User extends AbstractBean implements IUser{
     private static final long serialVersionUID = 1L;

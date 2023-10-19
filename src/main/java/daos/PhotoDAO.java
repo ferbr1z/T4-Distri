@@ -1,18 +1,16 @@
-package services;
+package daos;
 
 import org.springframework.web.client.RestTemplate;
-import abstracts.AbstractService;
+import abstracts.AbstractDAO;
 import beans.Photo;
 
-public class PhotoService extends AbstractService<Photo> {
+public class PhotoDAO extends AbstractDAO<Photo> {
 
     private RestTemplate rt = new RestTemplate();
 
-    public PhotoService() {
+    public PhotoDAO() {
         super("https://jsonplaceholder.typicode.com/photos/");
     }
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public Photo[] getAll() {

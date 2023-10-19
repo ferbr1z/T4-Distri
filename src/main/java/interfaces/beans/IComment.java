@@ -1,4 +1,6 @@
-package interfaces;
+package interfaces.beans;
+
+import interfaces.IBean;
 
 public interface IComment extends IBean {
     int getPostID();

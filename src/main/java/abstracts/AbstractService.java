@@ -1,21 +1,15 @@
 package abstracts;
 
-
+import beans.Todo;
+import dtos.TodoDTO;
 import interfaces.IService;
 
-public abstract class AbstractService<T extends AbstractBean> implements IService<T> {
+public abstract class AbstractService<T extends AbstractDto> implements IService<T> {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
-	protected String uri;
-
-	public AbstractService(String uri) {
-		this.uri = uri;
-	}
-
+	protected abstract T toDTO(AbstractBean bean);
+	
 	@Override
 	public abstract T[] getAll();
 

@@ -66,9 +66,14 @@
         <url-pattern>/posts</url-pattern>
     </servlet-mapping>
 
+	<servlet>
+    	<servlet-name>UsersServlet</servlet-name>
+    	<jsp-file>/users.jsp</jsp-file>
+    </servlet>
+
     <servlet-mapping>
-        <servlet-name>JSP Servlet</servlet-name>
-        <url-pattern>/users.jsp</url-pattern>
+        <servlet-name>UsersServlet</servlet-name>
+        <url-pattern>/users</url-pattern>
     </servlet-mapping>
     
     

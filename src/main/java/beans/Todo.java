@@ -3,7 +3,7 @@ package beans;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import abstracts.AbstractBean;
-import interfaces.ITodo;
+import interfaces.beans.ITodo;
 
 public class Todo extends AbstractBean implements ITodo {
 

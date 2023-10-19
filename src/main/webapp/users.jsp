@@ -1,6 +1,6 @@
 <%@page import="beans.User"%>
-<%@page import="services.UserService"%>
-<%@page import="interfaces.IService"%>
+<%@page import="daos.UserDAO"%>
+<%@page import="interfaces.IDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -43,10 +43,10 @@
     <div class="container">
         <h1>Listado de Usuarios</h1>
         <%
-        final UserService userService = new UserService();
-        User[] users = userService.getAll();
+        final UserDAO userService = new UserDAO();
+                User[] users = userService.getAll();
 
-        for (User user : users) {
+                for (User user : users) {
         %>
         <div class="user-item" id="<%= user.getID() %>">
             <h2><%= user.getName() %></h2>

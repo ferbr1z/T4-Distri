@@ -1,18 +1,16 @@
-package services;
+package daos;
 
 import org.springframework.web.client.RestTemplate;
-import abstracts.AbstractService;
+import abstracts.AbstractDAO;
 import beans.Post;
 
-public class PostService extends AbstractService<Post> {
+public class PostDAO extends AbstractDAO<Post> {
 
     private RestTemplate rt = new RestTemplate();
 
-    public PostService() {
+    public PostDAO() {
         super("https://jsonplaceholder.typicode.com/posts/");
     }
-
-    private static final long serialVersionUID = 1L;
 
     @Override
     public Post[] getAll() {

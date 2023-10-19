@@ -1,7 +1,8 @@
 package beans;
 
 import abstracts.AbstractBean;
-import interfaces.IPhoto;
+import interfaces.beans.IPhoto;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Photo extends AbstractBean implements IPhoto {
