@@ -15,6 +15,7 @@ public class PostDTO extends AbstractDto implements IPostDTO {
 		UserDAO userDao = new UserDAO();
 		this.id = post.getID();
 		this.userId = post.getUserID();
+		this.title = post.getTitle();
 		this.body = post.getBody();
 		this.userName = userDao.getByID(Integer.toString(userId)).getName();
 	}

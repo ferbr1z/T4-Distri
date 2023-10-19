@@ -24,7 +24,14 @@ public class PostsService extends AbstractService<PostDTO> {
 
 	@Override
 	public PostDTO[] getAll() {
-		return null;
+		Post[] posts = pdao.getAll();
+		PostDTO[] postList = new PostDTO[posts.length];
+		
+		for(int i=0; i< posts.length; i++) {
+			postList[i] = toDTO(posts[i]);
+		}
+		
+		return postList;
 	}
 
 	@Override
