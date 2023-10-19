@@ -1,7 +1,8 @@
 package beans;
 
 import abstracts.AbstractBean;
-import interfaces.IAlbum;
+import interfaces.beans.IAlbum;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Album extends AbstractBean implements IAlbum {

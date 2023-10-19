@@ -1,29 +1,37 @@
 package services;
 
-import org.springframework.web.client.RestTemplate;
+import abstracts.AbstractBean;
 import abstracts.AbstractService;
 import beans.Comment;
+import daos.CommentDAO;
+import dtos.CommentDTO;
 
-public class CommentService extends AbstractService<Comment> {
+public class CommentService extends AbstractService<CommentDTO>{
+	CommentDAO cdao= new CommentDAO();
+	@Override
+	protected CommentDTO toDTO(AbstractBean comment) {
+		return new CommentDTO((Comment) comment);
+	}
+	
+	@Override
+	public CommentDTO[] getAll() {
+		Comment[] comments = cdao.getAll();
+		CommentDTO[] commentsDTO=new CommentDTO[comments.length];
+		for (int i=0;i<comments.length;i++) {
+			commentsDTO[i]=toDTO(comments[i]);
+		}
+		return commentsDTO;
+	}
+	
+	
+	@Override
+	public CommentDTO getByID(String id) {
+		Comment comment=cdao.getByID(id);
+		CommentDTO commentDTO=new CommentDTO(comment);
+		return commentDTO;
+	}
 
-    private RestTemplate rt = new RestTemplate();
-
-    public CommentService() {
-        super("https://jsonplaceholder.typicode.com/comments/");
-    }
-
-    private static final long serialVersionUID = 1L;
-
-    @Override
-    public Comment[] getAll() {
-        Comment[] result = rt.getForObject(uri, Comment[].class);
-        return result;
-    }
-
-    @Override
-    public Comment getByID(String id) {
-        String uriWithId = uri + "/" + id;
-        Comment result = rt.getForObject(uriWithId, Comment.class);
-        return result;
-    }
 }
+
+
+

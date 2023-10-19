@@ -1,7 +1,8 @@
 package beans;
 
 import abstracts.AbstractBean;
-import interfaces.IComment;
+import interfaces.beans.IComment;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Comment extends AbstractBean implements IComment {

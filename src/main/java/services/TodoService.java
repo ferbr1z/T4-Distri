@@ -1,36 +1,37 @@
 package services;
 
-import org.springframework.web.client.RestTemplate;
-
+import abstracts.AbstractBean;
 import abstracts.AbstractService;
 import beans.Todo;
+import daos.TodoDAO;
+import dtos.TodoDTO;
 
-public class TodoService extends AbstractService<Todo> {
+public class TodoService extends AbstractService<TodoDTO> {
 
-	private RestTemplate rt = new RestTemplate();
-
-	public TodoService() {
-		//solamente se establece el endpoint de la api en el constructor padre
-		// esto debe ser configurable
-		super("https://jsonplaceholder.typicode.com/todos/");
-	}
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	TodoDAO tdao = new TodoDAO();
 
 	@Override
-	public Todo[] getAll() {
-		Todo[] result = rt.getForObject(uri, Todo[].class);
-		return result;
+	protected TodoDTO toDTO(AbstractBean todo) {
+		return new TodoDTO((Todo) todo);
 	}
 
 	@Override
-	public Todo getByID(String id) {
-		String uriWithId = uri + "/" + id;
-		Todo result = rt.getForObject(uriWithId, Todo.class);
-		return result;
+	public TodoDTO[] getAll() {
+		Todo[] todos = tdao.getAll();
+		TodoDTO[] todosDTO = new TodoDTO[todos.length];
+
+		for (int i=0; i<todos.length; i++) {
+			todosDTO[i] = toDTO(todos[i]);
+		}
+
+		return todosDTO;
+	}
+
+	@Override
+	public TodoDTO getByID(String id) {
+		Todo todo = tdao.getByID(id);
+		TodoDTO todoDTO = new TodoDTO(todo);
+		return todoDTO;
 	}
 
 }

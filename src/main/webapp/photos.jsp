@@ -1,6 +1,6 @@
 <%@page import="beans.Photo"%>
-<%@page import="services.PhotoService"%>
-<%@page import="interfaces.IService"%>
+<%@page import="daos.PhotoDAO"%>
+<%@page import="interfaces.IDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -63,6 +63,7 @@
     <div class="container">
         <h1>Listado de Fotos</h1>
         <%
+<<<<<<< HEAD
         final PhotoService photoService = new PhotoService();
         Photo[] photos = photoService.getAll();
         int colCount = 0;
@@ -85,6 +86,12 @@
             </div>
         <%
             if (colCount % 3 == 2 || colCount == photos.length - 1) {
+=======
+        final PhotoDAO photoService = new PhotoDAO();
+                Photo[] photos = photoService.getAll();
+
+                for (Photo photo : photos) {
+>>>>>>> main
         %>
         </div>
         <%

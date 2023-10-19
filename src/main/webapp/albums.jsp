@@ -1,6 +1,6 @@
-<%@page import="beans.Album"%>
+<%@page import="interfaces.dtos.IAlbumDTO"%>
 <%@page import="services.AlbumService"%>
-<%@page import="interfaces.IService"%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -43,19 +43,20 @@
     <div class="container">
         <h1>Listado de Álbumes</h1>
         <%
-        final AlbumService albumService = new AlbumService();
-        Album[] albums = albumService.getAll();
+        		final AlbumService albumService = new AlbumService();
+        //final AlbumDAO albumService = new AlbumDAO();
+                IAlbumDTO[] albums = albumService.getAll();
 
-        for (Album album : albums) {
+                for (IAlbumDTO album : albums) {
         %>
         <div class="album-item" id="<%= album.getID() %>">
             <h2><%= album.getTitle() %></h2>
-            <p>Usuario: <%= album.getUserID() %></p>
+            <p>Usuario: <%= album.getUserName() %></p>
         </div>
         <%
         }
         %>
-        <p><a href="todos.jsp">Ver Tareas</a></p>
+        <p><a href="todos">Ver Tareas</a></p>
     </div>
 </body>
 </html>

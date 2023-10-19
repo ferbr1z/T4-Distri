@@ -1,7 +1,8 @@
 package beans;
 
 import abstracts.AbstractBean;
-import interfaces.IPost;
+import interfaces.beans.IPost;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Post extends AbstractBean implements IPost {
